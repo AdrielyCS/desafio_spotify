@@ -24,9 +24,11 @@ AUTH_URL=your_auth_url
 TOKEN_URL=your_token_url
 ```
 
-### 2. Instalação das bibliotecas necessárias
+### 2. Criação do ambiente virtual e instalação das bibliotecas necessárias
 
 ```bash
+python -m venv venv
+.\venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
@@ -39,6 +41,17 @@ $env:SPARK_HOME = "C:\spark-4.0.0-bin-hadoop3"
 $env:Path += ";$env:SPARK_HOME\bin;$env:HADOOP_HOME\bin;$env:JAVA_HOME\bin"
 ```
 
-## Estrutura dos dados manipulados
+## Fluxo do Pipeline de Dados
 
-![alt text](src/assets/image.png "Estrutura dos dados manipulados")
+![alt text](src/assets/image.png "Fluxo do Pipeline de Dados")
+
+1. **Parquet Search**: Busca artistas por gênero musical.  
+2. **DataFrames**:  
+   - `df_artistas`: Obtém detalhes de cada artista dos gêneros buscados.  
+   - `df_musicas`: Coleta músicas de todos os albums dos artistas encontrados.
+   - `df_user_playlists`: Obtém detalhes de cada playlist salva pelo usuário.
+3. **Tabelas temporárias**:
+   - `artistas_view`: Tabela temporária do DataFrame `artistas`.
+   - `user_playlists_view`: Tabela temporária do DataFrame `df_user_playlists`.
+4. **Consulta SQL**: Filtra artistas presentes nas playlists do usuário.  
+5. **Saída**: Salva em Parquet. 
