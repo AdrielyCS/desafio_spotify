@@ -5,7 +5,7 @@ Este projeto implementa um pipeline de ETL (Extract, Transform, Load) para proce
 ## Pré-requisitos  
 - Python 3.9 ([Download Python](https://www.python.org/downloads/release/python-390/))
 - Java JDK 17 ([Download JDK 17](https://adoptium.net/temurin/releases/))  
-- App criado no Spotify ([Dashdoard Spotify](https://developer.spotify.com/dashboard/))
+- App criado no Spotify ([Dashboard Spotify](https://developer.spotify.com/dashboard/))
 - Spark 3.5.6 e Hadoop 3 (
     - [Documentation Spark](https://www.apache.org/dyn/closer.lua/spark/spark-3.5.6/)
     - [Download Spark](https://dlcdn.apache.org/spark/spark-3.5.6/spark-3.5.6-bin-hadoop3.tgz)
